@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 10240
-#define NUM_THREADS  10
+#define MAX 102400
+#define NUM_THREADS 20
 
 int n1,n2;
 char *s1,*s2;
@@ -12,10 +12,9 @@ FILE *fp;
 int countArray[NUM_THREADS]={0};
 
 
-//read input file and generate string s1/s2 and length n1/n2
 int readf(FILE *fp)
 {
-	if((fp=fopen("strings.txt", "r"))==NULL){
+	if((fp=fopen("emoji.txt", "r"))==NULL){
 		printf("ERROR: can't open string.txt!\n");
 		return 0;
 	}
@@ -49,11 +48,13 @@ int num_substring(int t)
     return 0;
 }
 
+
+
 void *calSubStringThread(void *threadid){
-    long tid = (long)threadid;
-    printf("This is thread %ld, ", tid);
+    long tid;
+    tid = (long)threadid;
     int num = num_substring(tid);
-    printf("find num of is: %d\n", num);
+    printf("This is thread %ld, num of substring %s is %d\n", tid, s2, num);
     pthread_exit(NULL);
 }
 
@@ -80,8 +81,3 @@ int main(int argc, char *argv[])
  	printf("The number of substrings is: %d\n", totalNum);
 	return 1;
 }
-
-
-
-
-
