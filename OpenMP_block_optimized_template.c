@@ -101,5 +101,10 @@ int main()
     clock_t t2 = clock();
     printf("time: %ld", t2-t1);
 
+    //double t1 = omp_get_wtime();
+    //matrixMulti(0, N-1, 0, N-1, 0, N-1);
+    //double t2 = omp_get_wtime();
+    //printf("execution   time: %3f\n", ((double)t2 - t1) / CLOCKS_PER_SEC * 1000000.0);
+
     return 0;
 }
