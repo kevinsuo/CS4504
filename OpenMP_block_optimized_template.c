@@ -39,6 +39,7 @@ void matrixMulti(int upperOfRow , int bottomOfRow ,
                  int leftOfCol , int rightOfCol ,
                  int transLeft ,int transRight )
 {
+    //If you think 512*512 is not small enough, you can adjust the number
     if ( ( bottomOfRow - upperOfRow ) < 512 ) {
         smallMatrixMult ( upperOfRow , bottomOfRow , leftOfCol , rightOfCol , transLeft , transRight );
     } else {
